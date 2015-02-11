@@ -13,12 +13,12 @@ pip install materializedjangoform
 
 Add to INSTALLED_APPS:
 
-*myapp/settings.py*
-
-INSTALLED_APPS = [
-     'bootstrapform',
-     # ...
-]
+```    
+INSTALLED_APPS = (
+     'materializecssform',
+     ...
+     )
+```
 
 ## Usage
 
@@ -27,10 +27,10 @@ Use it like this, simple.
 {% load materializecss %}
 {{ form|materializecss }}
 
+
 ## Demo
 
 Checkout this Demo site to see it in action.
-
 
 
 ## Help
@@ -41,9 +41,12 @@ Checkout this Demo site to see it in action.
 - Textarea
 - Select 
 - Filefield
+- DateField
 
 ### TODO
 - Multiple select
 
 
-Install
+## Inspired by
+
+https://github.com/tzangms/django-bootstrap-form
