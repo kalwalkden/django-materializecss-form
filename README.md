@@ -8,7 +8,7 @@ A simple Django template tag to work with Materializecss
 ## Install
 
 ```
-pip install materializedjangoform
+pip install materializecssform
 ```
 
 Add to INSTALLED_APPS:
