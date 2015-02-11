@@ -1,2 +1,3 @@
-include *.md *.html
+include README.md
+recursive-include materializecssform *.html
 
