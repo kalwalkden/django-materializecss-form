@@ -3,7 +3,7 @@ materialize-css-form
 
 Materializecss for Django Form
 
-A simple Django template tag to work with Materializecss
+A simple Django template tag to work with `Materializecss`_
 
 Install
 -------
@@ -28,7 +28,22 @@ Usage
 
 Use it like this, simple.
 
-{% load materializecss %} {{ form\|materializecss }}
+{% load materializecss %}
+
+All the form
+~~~~~~~~~~~~
+
+{{ form\|materializecss }}
+
+Individual field
+~~~~~~~~~~~~~~~~
+
+{{ form.\|materializecss }}
+
+Custom size (default is ‘s12’)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{{ form\|materializecss:‘m6’ }}
 
 Demo
 ----
@@ -65,5 +80,6 @@ Inspired by
 
 `django-bootstrap-form`_
 
+.. _Materializecss: http://materializecss.com/
 .. _on pypi: https://pypi.python.org/pypi/django-materializecss-form
 .. _django-bootstrap-form: https://github.com/tzangms/django-bootstrap-form
