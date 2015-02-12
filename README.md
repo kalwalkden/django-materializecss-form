@@ -10,7 +10,7 @@ A simple Django template tag to work with [Materializecss](http://materializecss
 ## Install
 
 ```
-pip install django-materializecssform
+pip install django-materializecss-form
 ```
 
 [on pypi](https://pypi.python.org/pypi/django-materializecss-form)
@@ -19,7 +19,7 @@ Add to INSTALLED_APPS:
 
 ```    
 INSTALLED_APPS = (
-     'django-materializecss-form',
+     'materializecssform',
      ...
      )
 ```

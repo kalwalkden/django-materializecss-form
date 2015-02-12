@@ -10,7 +10,7 @@ Install
 
 ::
 
-    pip install django-materializecssform
+    pip install django-materializecss-form
 
 `on pypi`_
 
@@ -19,7 +19,7 @@ Add to INSTALLED\_APPS:
 ::
 
     INSTALLED_APPS = (
-         'django-materializecss-form',
+         'materializecssform',
          ...
          )
 
@@ -83,3 +83,4 @@ Inspired by
 .. _Materializecss: http://materializecss.com/
 .. _on pypi: https://pypi.python.org/pypi/django-materializecss-form
 .. _django-bootstrap-form: https://github.com/tzangms/django-bootstrap-form
+
