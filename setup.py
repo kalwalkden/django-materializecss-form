@@ -19,7 +19,7 @@ setup(
  
     description="A simple Django form template tag to work with Materializecss",
 
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
  
     # install_requires= ,
  
