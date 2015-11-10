@@ -40,10 +40,10 @@ Individual field
 
 {{ form.\|materializecss }}
 
-Custom size (default is ‘s12’)
+Custom size (default is 's12')
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-{{ form\|materializecss:‘m6’ }}
+{{ form\|materializecss:'m6' }}
 
 Demo
 ----
