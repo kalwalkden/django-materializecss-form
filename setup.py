@@ -40,4 +40,6 @@ setup(
     ],
  
     license="MIT",
+
+    zip_safe=False
 )
