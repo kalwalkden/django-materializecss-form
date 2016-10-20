@@ -126,23 +126,22 @@
 
     {% elif field|is_file %}
         <div class="col {{ classes.label }}">
-            <p>
-            {% if field.auto_id %}
-                <label class="{{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label><br>
-            {% endif %}
-            {{ field }}
-            </p>
 
             {% for error in field.errors %}
                 <p class="help-block orange-text {{ form.error_css_class }}">{{ error }}</p>
-                {% endfor %}
+            {% endfor %}
 
-            {% if field.help_text %}
-                <p>
-                    {{ field.help_text|safe }}
-                </p>
-            {% endif %}
-        </div>  
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>{{ field.label }}</span>
+                    {{ field }}
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+        </div>
     {% else %}
 
         <div class="input-field col {{ classes.label }}">
