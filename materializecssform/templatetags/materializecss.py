@@ -21,7 +21,8 @@ def add_input_classes(field):
     if not is_checkbox(field) and not is_multiple_checkbox(field) and not is_radio(field) \
         and not is_file(field):
         field_classes = field.field.widget.attrs.get('class', '')
-        field_classes += ' validate'
+        if config.MATERIALIZECSS_VALIDATION:
+            field_classes += ' validate'
         if field.errors:
             field_classes+= ' invalid'
         field.field.widget.attrs['class'] = field_classes
