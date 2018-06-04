@@ -55,7 +55,20 @@ In your base.html:
     crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+  <script>
+  $(document).ready(function(){
+
+    // Initialize materialize data picker
+    $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+
+  });
+
+  </script>
+
   {% endblock javascript %}
+
+
 
   ...
 
