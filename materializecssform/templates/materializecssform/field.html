@@ -3,24 +3,24 @@
 
     {% if field|is_checkbox %}
     <div class="col {{ classes.label }}">
-        <div class="{{ classes.single_value }}">
-            <div class="checkbox">
-                {% if field.auto_id %}
-                    {{ field }}
-                    <label for="{{ field.id_for_label }}" {% if field.field.required and form.required_css_class %}class="{{ form.required_css_class }}"{% endif %}>
-                        <span>{{ field.label }}</span>
-                    </label>
-                {% endif %}
-                {% for error in field.errors %}
-                    <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
-                {% endfor %}
+        <div class="{{ classes.single_value }} {% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
+            <label>
+                    {% if field.auto_id %}
+                        {{ field }}
 
-                {% if field.help_text %}
-                    <p class="help-block">
-                        {{ field.help_text|safe }}
-                    </p>
-                {% endif %}
-            </div>
+                        <span>{{ field.label }}</span>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+                    {% endfor %}
+
+                </div>
+            </label>
+            {% if field.help_text %}
+                <p class="help-block">
+                    {{ field.help_text|safe }}
+                </p>
+            {% endif %}
         </div>
     </div>
     {% elif field|is_radio %}
