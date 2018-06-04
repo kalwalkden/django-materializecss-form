@@ -61,6 +61,7 @@ In your base.html:
 
     // Initialize materialize data picker
     $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+    $('select').formSelect();
 
   });
 
