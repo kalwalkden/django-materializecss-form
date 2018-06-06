@@ -1,6 +1,7 @@
 from django import forms
 from django.template.loader import get_template
 from django import template
+from django.forms.fields import DateTimeField, DateField
 
 from materializecssform import config
 
@@ -73,7 +74,11 @@ def is_radio(field):
 
 @register.filter
 def is_date_input(field):
-    return isinstance(field.field.widget, forms.DateInput)
+    return isinstance(field.field, DateField)
+
+@register.filter
+def is_datetime_input(field):
+    return isinstance(field.field, DateTimeField)
 
 
 @register.filter
