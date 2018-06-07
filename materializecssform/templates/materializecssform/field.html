@@ -65,8 +65,8 @@
             {% if field|is_checkbox_select_multiple %}
                 <div class="input-field {{ classes.value }}">
                     <select multiple>
-                        {% for choice in field %}
-                              <option value="{{ choice.choice_value }}">{{ choice.choice_label }}</option>
+                        {% for val, name in field.choices %}
+                              <option value="{{ val }}">{{ name }}</option>
                         {% endfor %}
                     </select>
                     {% if field.auto_id %}
@@ -86,8 +86,8 @@
 
             {% else %}
                     <select>
-                        {% for choice in field %}
-                              <option value="{{ choice.choice_value }}">{{ choice.choice_label }}</option>
+                        {% for val, name in field.choices %}
+                              <option value="{{ val }}">{{ name }}</option>
                         {% endfor %}
                     </select>
                     {% if field.auto_id %}
