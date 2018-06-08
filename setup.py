@@ -5,6 +5,9 @@ from setuptools import setup, find_packages
 
 import materializecssform
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
 
     name='django-materializecss-form',
@@ -18,7 +21,7 @@ setup(
     author_email="kal@walkden.us",
 
     description="A simple Django form template tag to work with Materializecss",
-    long_description=open('README.md').read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
 
     include_package_data=True,
@@ -33,7 +36,6 @@ setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.6",
-        "Topic :: Documentation :: Sphinx",
     ],
 
     license="MIT",
