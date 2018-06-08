@@ -10,8 +10,7 @@ Install
 
 ::
 
-    pip git+https://github.com/kalwalkden/django-materializecss-form.git
-
+    pip django-materializecss-form
 
 
 `on pypi`_
@@ -120,18 +119,22 @@ Widget
 -  Filefield
 -  DateField
 
-TODO
-~~~~
-
--  Multiple select
 
 Inspired by
 -----------
 
 `django-bootstrap-form`_
 
+Originally Built By
+-----------
+
+Florent CLAPIÉ
+
+`Florent CLAPIÉ`_
+
 .. _Materializecss: http://materializecss.com/
 .. _on pypi: https://pypi.python.org/pypi/django-materializecss-form
 .. _on GitHub: https://github.com/kalwalkden/django-materializecss-form
+.. _Florent CLAPIÉ: ttps://pypi.org/user/florent1933/
 .. _django-bootstrap-form: https://github.com/tzangms/django-bootstrap-form
 

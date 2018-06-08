@@ -9,10 +9,9 @@ A simple Django template tag to work with [Materializecss](http://materializecss
 
 ## Install
 
-This is forked version. If you find this useful send me and email at kal@walkden.us or make a pull request.
 
 ```
-pip git+https://github.com/kalwalkden/django-materializecss-form.git
+pip django-materializecss-form
 
 ```
 
@@ -114,11 +113,15 @@ Use it like this, simple.
 - Filefield
 - DateField
 
-### TODO
-- Multiple select
 
 
 ## Inspired by
 
 [django-bootstrap-form](https://github.com/tzangms/django-bootstrap-form)
+
+## Originally Built By
+
+Florent CLAPIÉ
+
+[https://pypi.org/user/florent1933/] https://pypi.org/user/florent1933/
 
