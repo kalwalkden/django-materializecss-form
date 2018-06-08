@@ -18,15 +18,12 @@ setup(
     author_email="kal@walkden.us",
 
     description="A simple Django form template tag to work with Materializecss",
-
-    long_description=open('README.rst').read(),
-
-    # install_requires= ,
+    long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
 
     include_package_data=True,
 
     url='https://github.com/kalwalkden/django-materializecss-form',
-
     classifiers=[
         "Programming Language :: Python",
         "Development Status :: 4 - Beta",
