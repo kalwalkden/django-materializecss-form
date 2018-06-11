@@ -11,7 +11,7 @@ A simple Django template tag to work with [Materializecss](http://materializecss
 
 
 ```
-pip django-materializecss-form
+pip install  django-materializecss-form
 
 ```
 
