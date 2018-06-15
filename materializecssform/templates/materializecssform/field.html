@@ -62,9 +62,9 @@
     </div>
     {% elif field|is_select %}
     <div class="col input-field {{ classes.label }} {{ classes.value }}">
-            {% if field|is_checkbox_select_multiple %}
+            {% if field|is_select_multiple %}
                 <div class="input-field {{ classes.value }}">
-                    <select multiple>
+                    <select multiple name="{{ field.name }}">
                         {% for choice in field %}
                               {{ choice.tag }}
                         {% endfor %}
@@ -85,7 +85,7 @@
                 </div>
 
             {% else %}
-                    <select>
+                    <select name="{{ field.name }}">
                         {% for choice in field %}
                               {{ choice.tag }}
                         {% endfor %}
