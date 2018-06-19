@@ -14,7 +14,6 @@
                         <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
                     {% endfor %}
 
-                </div>
             </label>
             {% if field.help_text %}
                 <p class="help-block">
@@ -34,8 +33,6 @@
                     {% for error in field.errors %}
                         <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
                     {% endfor %}
-
-                </div>
             </label>
             {% if field.help_text %}
                 <p class="help-block">
