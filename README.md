@@ -87,7 +87,7 @@ Use it like this, simple.
 
 ### Individual field
 
-{{ form.<field name>|materializecss }}
+{{ form.<<field name>> | materializecss }}
 
 
 ### Custom size (default is 's12')
@@ -109,9 +109,14 @@ Use it like this, simple.
 
 - TextInput
 - Textarea
+- CheckboxInput
+- RadioSelect
 - Select
+- SelectMultiple
+- CheckboxSelectMultiple
 - Filefield
 - DateField
+- DateTimeField (doesn't show time yet)
 
 
 
