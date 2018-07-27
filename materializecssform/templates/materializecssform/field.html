@@ -44,7 +44,7 @@
     {% elif field|is_date_input or field|is_datetime_input %}
     <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
 
-        <input type="date" id="{{ field.auto_id }}" name="{{ field.name }}" class="datepicker" value="{% if field.value %}{{ field.value }}{% endif %}">
+        <input type="date" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{{ field.value }}{% endif %}" {% include 'materializecssform/attrs.html' %} >
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
         {% for error in field.errors %}
@@ -59,7 +59,7 @@
 
     </div>
     {% elif field|is_select %}
-    <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
+    <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">z
             {% if field|is_select_multiple %}
                 <select multiple name="{{ field.name }}">
                     {% for choice in field %}
@@ -138,8 +138,8 @@
     </div>
 
     {% elif field|is_textarea %}
-        <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
-            <textarea id="{{ field.auto_id }}" class="materialize-textarea" name="{{field.name}}">{% if field.value %}{{ field.value }}{% endif %}</textarea>
+        <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }">
+            <textarea id="{{ field.auto_id }}" class="materialize-textarea" name="{{field.html_name}}" {% include 'materializecssform/attrs.html' %} >{% if field.value %}{{ field.value }}{% endif %}</textarea>
             {% if field.auto_id %}
                 <label class="{% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
             {% endif %}
