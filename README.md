@@ -96,10 +96,10 @@ Use it like this, simple.
 
 
 ### Icons support
-This is most useful for adding a descriptive icon when you are creating a custom layout by building the form one field at a time.
+This is most useful for adding a descriptive icon when you are creating a custom layout by building the form one field at a time. Substitue FIELD_NAME below with one of the field names from your form.
 ```html
-{{ form.<<field name>>|materializecss:'s12 m6, icon=person' }}
-{{ form.<<field name>>|materializecss:'custom_size=s12 m6, icon=person' }}
+{{ form.FIELD_NAME|materializecss:'s12 m6, icon=person' }}
+{{ form.FIELD_NAME|materializecss:'custom_size=s12 m6, icon=person' }}
 ```
 
 ## Demo
