@@ -95,6 +95,12 @@ Use it like this, simple.
 {{ form|materializecss:'m6' }}
 
 
+### Icons support
+This is most useful for adding a descriptive icon when you are creating a custom layout by building the form one field at a time.
+```html
+{{ form.<<field name>>|materializecss:'s12 m6, icon=person' }}
+{{ form.<<field name>>|materializecss:'custom_size=s12 m6, icon=person' }}
+```
 
 ## Demo
 
