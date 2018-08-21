@@ -2,17 +2,38 @@ from django import forms
 from django.template.loader import get_template
 from django import template
 from django.forms.fields import DateTimeField, DateField
+from django.http import QueryDict
 
 from materializecssform import config
 
 register = template.Library()
 
 @register.filter
-def materializecss(element, label_cols={}):
-    if not label_cols:
+def materializecss(element, options={}):
+    if not options:
         label_cols = 's12'
+        icon = ''
+    else:
+        # Split options string into a list of arguments
+        arguments = [arg.strip() for arg in options.split(',')]
 
-    markup_classes = {'label': label_cols, 'value': '', 'single_value': ''}
+        # Check the first argument to see if it's of form argument=value
+        if '=' not in arguments[0]:
+            # If not, it's a custom size, so use that
+            label_cols = arguments[0]
+            # Remove this from the arguments list
+            arguments.pop(0)
+
+        # Join the remaining arguments into a querystring for easy parsing
+        options = '&'.join(arguments)
+        qs = QueryDict(options)
+        # Check to see if a custom size was passed in this fashion and if so prefer it
+        if qs.get('custom_size'):
+            label_cols = qs.get('custom_size')
+        # Get icon if it's been set
+        icon = qs.get('icon', default='')
+
+    markup_classes = {'label': label_cols, 'value': '', 'single_value': '', 'icon': icon}
     return render(element, markup_classes)
 
 

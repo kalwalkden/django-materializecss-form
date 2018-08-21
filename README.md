@@ -37,6 +37,7 @@ In your base.html:
 <head>
 
 {% block css %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
 {% endblock css %}
 
@@ -95,6 +96,12 @@ Use it like this, simple.
 {{ form|materializecss:'m6' }}
 
 
+### Icons support
+This is most useful for adding a descriptive icon when you are creating a custom layout by building the form one field at a time. Substitue FIELD_NAME below with one of the field names from your form.
+```html
+{{ form.FIELD_NAME|materializecss:'s12 m6, icon=person' }}
+{{ form.FIELD_NAME|materializecss:'custom_size=s12 m6, icon=person' }}
+```
 
 ## Demo
 
