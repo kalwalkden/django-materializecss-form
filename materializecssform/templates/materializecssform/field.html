@@ -73,7 +73,7 @@
                 {% if classes.icon %}
                     <i class="material-icons prefix">{{ classes.icon }}</i>
                 {% endif %}
-                <select multiple name="{{ field.name }}">
+                <select multiple name="{{ field.html_name }}">
                     {% for choice in field %}
                           {{ choice.tag }}
                     {% endfor %}
@@ -96,7 +96,7 @@
                 {% if classes.icon %}
                     <i class="material-icons prefix">{{ classes.icon }}</i>
                 {% endif %}
-                <select name="{{ field.name }}">
+                <select name="{{ field.html_name }}">
                     {% for choice in field %}
                           {{ choice.tag }}
                     {% endfor %}
