@@ -103,6 +103,15 @@ This is most useful for adding a descriptive icon when you are creating a custom
 {{ form.FIELD_NAME|materializecss:'custom_size=s12 m6, icon=person' }}
 ```
 
+### Note about `DateTimeField`
+Input field is rendered as a *datetime-local* type, that let the user easily enter both a date and a time. As this field requires ISO-8601 format, your main project settings need to include the ISO format in order for the form to consider this field valid:
+```
+from django.conf.global_settings import DATETIME_INPUT_FORMATS
+
+# ISO 8601 datetime format to accept html5 datetime input values
+DATETIME_INPUT_FORMATS += ["%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M"]
+```
+
 ## Demo
 
 ![Basic form](https://cloud.githubusercontent.com/assets/3958123/6165004/a1984f52-b2a4-11e4-8ae2-078505991b0d.png)
