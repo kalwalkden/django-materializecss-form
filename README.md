@@ -118,6 +118,7 @@ DATETIME_INPUT_FORMATS += ["%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M"]
 
 ![DatePicker](https://cloud.githubusercontent.com/assets/3958123/6165005/a19bf044-b2a4-11e4-9989-6a64f9c97087.png)
 
+![DateTimePicker](https://user-images.githubusercontent.com/556361/49763533-8a44f580-fc92-11e8-8d24-f45373becd11.png)
 
 ## Help
 
@@ -132,7 +133,7 @@ DATETIME_INPUT_FORMATS += ["%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M"]
 - CheckboxSelectMultiple
 - Filefield
 - DateField
-- DateTimeField (doesn't show time yet)
+- DateTimeField
 
 
 
