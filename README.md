@@ -104,7 +104,7 @@ This is most useful for adding a descriptive icon when you are creating a custom
 ```
 
 ### Note about `DateTimeField`
-Input field is rendered as a *datetime-local* type, that let the user easily enter both a date and a time. As this field requires ISO-8601 format, your main project settings need to include the ISO format in order for the form to consider this field valid:
+Input field is rendered as a *datetime-local* type, this lets the user easily enter both a date and a time. As this field requires ISO-8601 format, your main project settings need to include the ISO format in order for the form to interpret this field valid:
 ```
 from django.conf.global_settings import DATETIME_INPUT_FORMATS
 
