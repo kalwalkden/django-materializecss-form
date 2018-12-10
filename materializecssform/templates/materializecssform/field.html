@@ -47,13 +47,33 @@
             {% endif %}
         </div>
     </div>
-    {% elif field|is_date_input or field|is_datetime_input %}
+    {% elif field|is_date_input %}
     <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
         {% if classes.icon %}
             <i class="material-icons prefix">{{ classes.icon }}</i>
         {% endif %}
 
         <input type="date" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{{ field.value }}{% endif %}" {% include 'materializecssform/attrs.html' %} >
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+        {% for error in field.errors %}
+            <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+        {% endfor %}
+
+        {% if field.help_text %}
+        <p class="help-block">
+            {{ field.help_text|safe }}
+        </p>
+        {% endif %}
+
+    </div>
+    {% elif field|is_datetime_input %}
+    <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
+        {% if classes.icon %}
+            <i class="material-icons prefix">{{ classes.icon }}</i>
+        {% endif %}
+
+        <input type="datetime-local" id="{{ field.auto_id }}" name="{{ field.html_name }}" value="{% if field.value %}{{ field.value|date:'c' }}{% endif %}" {% include 'materializecssform/attrs.html' %}  >
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
         {% for error in field.errors %}
