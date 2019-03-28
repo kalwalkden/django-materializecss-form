@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 import materializecssform
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
