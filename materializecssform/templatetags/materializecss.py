@@ -10,10 +10,11 @@ register = template.Library()
 
 @register.filter
 def materializecss(element, options={}):
-    if not options:
-        label_cols = 's12'
-        icon = ''
-    else:
+    # Set default values if none of them are set
+    label_cols = 's12'
+    icon = ''
+
+    if options:
         # Split options string into a list of arguments
         arguments = [arg.strip() for arg in options.split(',')]
 
