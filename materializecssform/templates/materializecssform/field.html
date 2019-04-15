@@ -6,7 +6,7 @@
     <div class="col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
         <div class="{% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
             {% if classes.icon %}
-                <i class="material-icons prefix">{{ classes.icon }}</i>
+                {% include 'materializecssform/field_icon.html' %}
             {% endif %}
             <label>
 
@@ -30,7 +30,7 @@
     <div class="col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
         <div class="{% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
             {% if classes.icon %}
-                <i class="material-icons prefix">{{ classes.icon }}</i>
+                {% include 'materializecssform/field_icon.html' %}
             {% endif %}
             <label>
                     {{ field }}
@@ -51,7 +51,7 @@
     {% elif field|is_date_input %}
     <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
         {% if classes.icon %}
-            <i class="material-icons prefix">{{ classes.icon }}</i>
+            {% include 'materializecssform/field_icon.html' %}
         {% endif %}
 
         <input type="date" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{% localize off %}{{ field.value }}{% endlocalize %}{% endif %}" {% include 'materializecssform/attrs.html' %} >
@@ -71,7 +71,7 @@
     {% elif field|is_datetime_input %}
     <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
         {% if classes.icon %}
-            <i class="material-icons prefix">{{ classes.icon }}</i>
+            {% include 'materializecssform/field_icon.html' %}
         {% endif %}
 
         <input type="datetime-local" id="{{ field.auto_id }}" name="{{ field.html_name }}" value="{% if field.value %}{{ field.value|date:'c' }}{% endif %}" {% include 'materializecssform/attrs.html' %}  >
@@ -92,7 +92,7 @@
     <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
             {% if field|is_select_multiple %}
                 {% if classes.icon %}
-                    <i class="material-icons prefix">{{ classes.icon }}</i>
+                    {% include 'materializecssform/field_icon.html' %}
                 {% endif %}
                 <select multiple name="{{ field.html_name }}">
                     {% for choice in field %}
@@ -115,7 +115,7 @@
 
             {% else %}
                 {% if classes.icon %}
-                    <i class="material-icons prefix">{{ classes.icon }}</i>
+                    {% include 'materializecssform/field_icon.html' %}
                 {% endif %}
                 <select name="{{ field.html_name }}">
                     {% for choice in field %}
@@ -176,7 +176,7 @@
     {% elif field|is_textarea %}
         <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
             {% if classes.icon %}
-                <i class="material-icons prefix">{{ classes.icon }}</i>
+                {% include 'materializecssform/field_icon.html' %}
             {% endif %}
             <textarea id="{{ field.auto_id }}" class="materialize-textarea" name="{{field.html_name}}" {% include 'materializecssform/attrs.html' %} >{% if field.value %}{{ field.value }}{% endif %}</textarea>
             {% if field.auto_id %}
@@ -205,7 +205,7 @@
                 <div class="btn">
                     <span>{{ field.label }}</span>
                     {% if classes.icon %}
-                        <i class="material-icons prefix">{{ classes.icon }}</i>
+                        {% include 'materializecssform/field_icon.html' %}
                     {% endif %}
                     {{ field }}
                 </div>
@@ -219,7 +219,7 @@
 
         <div class="input-field col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
             {% if classes.icon %}
-                <i class="material-icons prefix">{{ classes.icon }}</i>
+                {% include 'materializecssform/field_icon.html' %}
             {% endif %}
             {{ field }}
             {% if field.auto_id %}
