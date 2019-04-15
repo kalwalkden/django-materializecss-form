@@ -1,1 +1,7 @@
-<i class="material-icons prefix">{{ classes.icon }}</i>
+{% if icon_set == 'fontawesome' %}
+  <i class="{{ classes.icon }} prefix"></i>
+{% elif icon_set == 'glyphicon' %}
+  <span class="glyphicon {{ classes.icon }} prefix" aria-hidden="true"></span>
+{% else %}
+  <i class="material-icons prefix">{{ classes.icon }}</i>
+{% endif %}
