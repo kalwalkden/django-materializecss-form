@@ -103,6 +103,14 @@ This is most useful for adding a descriptive icon when you are creating a custom
 {{ form.FIELD_NAME|materializecss:'custom_size=s12 m6, icon=person' }}
 ```
 
+#### Opional icon sets
+If you're using optional icon sets you need to set `MATERIALIZECSS_ICON_SET` in your settings file:
+
+```python
+MATERIALIZECSS_ICON_SET = 'fontawesome'
+```
+Currently [Font Awesome](https://www.fontawesome.com/) and [GLYPHICONS](https://www.glyphicons.com) is supported, however you might need to modify your CSS for full support.
+
 ### Note about `DateTimeField`
 Input field is rendered as a *datetime-local* type, this lets the user easily enter both a date and a time. As this field requires ISO-8601 format, your main project settings need to include the ISO format in order for the form to interpret this field valid:
 ```
