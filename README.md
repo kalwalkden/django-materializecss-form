@@ -46,54 +46,58 @@ In your base.html:
 
 ```
 
-  <body >
+<body >
 
-  {% block javascript %}
-  <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+{% block javascript %}
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
 
-  <script>
-  $(document).ready(function(){
+<script>
+$(document).ready(function(){
 
-    // Initialize materialize data picker
-    $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
-    $('select').formSelect();
+  // Initialize materialize data picker
+  $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+  $('select').formSelect();
 
-  });
+});
+</script>
+{% endblock javascript %}
 
-  </script>
+...
 
-  {% endblock javascript %}
-
-
-
-  ...
-
-  </body>
+</body>
 ```
 
 ## Usage
 
 Use it like this, simple.
 
+```html
 {% load materializecss %}
+```
 
-### All the form
+### Full form
 
+```html
 {{ form|materializecss }}
+```
 
 ### Individual field
 
-{{ form.<<field name>> | materializecss }}
-
+```html
+{{ form.<field name>|materializecss }}
+```
 
 ### Custom size (default is 's12')
 
+```html
 {{ form|materializecss:'m6' }}
+{{ form|materializecss:'custom_size=m6' }}
+```
 
 
 ### Icons support
