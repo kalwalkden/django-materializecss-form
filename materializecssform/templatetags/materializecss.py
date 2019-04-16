@@ -10,10 +10,11 @@ register = template.Library()
 
 @register.filter
 def materializecss(element, options={}):
-    if not options:
-        label_cols = 's12'
-        icon = ''
-    else:
+    # Set default values if none of them are set
+    label_cols = 's12'
+    icon = ''
+
+    if options:
         # Split options string into a list of arguments
         arguments = [arg.strip() for arg in options.split(',')]
 
@@ -52,10 +53,13 @@ def add_input_classes(field):
 def render(element, markup_classes):
     element_type = element.__class__.__name__.lower()
 
+    # Get the icon set setting
+    icon_set = config.MATERIALIZECSS_ICON_SET
+
     if element_type == 'boundfield':
         add_input_classes(element)
         template = get_template("materializecssform/field.html")
-        context = {'field': element, 'classes': markup_classes}
+        context = {'field': element, 'classes': markup_classes, 'icon_set': icon_set}
     else:
         has_management = getattr(element, 'management_form', None)
         if has_management:
@@ -64,13 +68,13 @@ def render(element, markup_classes):
                     add_input_classes(field)
 
             template = get_template("materializecssform/formset.html")
-            context = {'formset': element, 'classes': markup_classes}
+            context = {'formset': element, 'classes': markup_classes, 'icon_set': icon_set}
         else:
             for field in element.visible_fields():
                 add_input_classes(field)
 
             template = get_template("materializecssform/form.html")
-            context = {'form': element, 'classes': markup_classes}
+            context = {'form': element, 'classes': markup_classes, 'icon_set': icon_set}
 
     return template.render(context)
 
