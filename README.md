@@ -1,26 +1,21 @@
+[![PyPI version](https://badge.fury.io/py/django-materializecss-form.svg)](https://pypi.org/project/django-materializecss-form/)
+
 # materialize-css-form
 Materializecss for Django Form
 
 A simple Django template tag to work with [Materializecss](http://materializecss.com/)
 
-
-
-
-
 ## Install
 
+From [PyPi](https://pypi.org/project/django-materializecss-form/):
 
 ```
 pip install  django-materializecss-form
-
 ```
 
+From [GitHub](https://github.com/kalwalkden/django-materializecss-form)
 
-
-[on pypi](https://pypi.python.org/pypi/django-materializecss-form)
-[on GitHub](https://github.com/kalwalkden/django-materializecss-form)
-
-Add to INSTALLED_APPS:
+Add module to INSTALLED_APPS:
 
 ```
 INSTALLED_APPS = (
@@ -29,7 +24,7 @@ INSTALLED_APPS = (
      )
 ```
 
-Add Materializecss to your project:
+Add Materialize CSS to your project ([Official Documentation](https://materializecss.com/getting-started.html)):
 
 In your base.html:
 
@@ -74,7 +69,7 @@ $(document).ready(function(){
 
 ## Usage
 
-Use it like this, simple.
+Import the module simply like this:
 
 ```html
 {% load materializecss %}
@@ -82,11 +77,15 @@ Use it like this, simple.
 
 ### Full form
 
+Format a whole form:
+
 ```html
 {{ form|materializecss }}
 ```
 
 ### Individual field
+
+Format only a specific field:
 
 ```html
 {{ form.<field name>|materializecss }}
@@ -94,6 +93,7 @@ Use it like this, simple.
 
 ### Custom size (default is 's12')
 
+Apply custom sizes in grid ([see Materialize CSS documentation](https://materializecss.com/grid.html)):
 ```html
 {{ form|materializecss:'m6' }}
 {{ form|materializecss:'custom_size=m6' }}
@@ -101,18 +101,22 @@ Use it like this, simple.
 
 
 ### Icons support
+
 This is most useful for adding a descriptive icon when you are creating a custom layout by building the form one field at a time. Substitue FIELD_NAME below with one of the field names from your form.
+
 ```html
 {{ form.FIELD_NAME|materializecss:'s12 m6, icon=person' }}
 {{ form.FIELD_NAME|materializecss:'custom_size=s12 m6, icon=person' }}
 ```
 
-#### Opional icon sets
+#### Optional icon sets
+
 If you're using optional icon sets you need to set `MATERIALIZECSS_ICON_SET` in your settings file:
 
 ```python
 MATERIALIZECSS_ICON_SET = 'fontawesome'
 ```
+
 Currently [Font Awesome](https://www.fontawesome.com/) and [GLYPHICONS](https://www.glyphicons.com) is supported, however you might need to modify your CSS for full support.
 
 ### Note about `DateTimeField`
@@ -147,15 +151,10 @@ DATETIME_INPUT_FORMATS += ["%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M"]
 - DateField
 - DateTimeField
 
-
-
 ## Inspired by
 
 [django-bootstrap-form](https://github.com/tzangms/django-bootstrap-form)
 
 ## Originally Built By
 
-Florent CLAPIÉ
-
-[https://pypi.org/user/florent1933/] https://pypi.org/user/florent1933/
-
+Florent CLAPIÉ ([PyPI](https://pypi.org/user/florent1933/))
