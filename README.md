@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/django-materializecss-form.svg)](https://badge.fury.io/py/django-materializecss-form)
+[![PyPI version](https://badge.fury.io/py/django-materializecss-form.svg)](https://pypi.org/project/django-materializecss-form/)
 
 # materialize-css-form
 Materializecss for Django Form
