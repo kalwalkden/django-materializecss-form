@@ -13,7 +13,7 @@ From [PyPi](https://pypi.org/project/django-materializecss-form/):
 pip install  django-materializecss-form
 ```
 
-[From GitHub](https://github.com/kalwalkden/django-materializecss-form)
+From [GitHub](https://github.com/kalwalkden/django-materializecss-form)
 
 Add module to INSTALLED_APPS:
 
@@ -24,7 +24,7 @@ INSTALLED_APPS = (
      )
 ```
 
-Add Materializecss to your project:
+Add Materialize CSS to your project ([Official Documentation](https://materializecss.com/getting-started.html)):
 
 In your base.html:
 
