@@ -8,6 +8,7 @@ from materializecssform import config
 
 register = template.Library()
 
+
 @register.filter
 def materializecss(element, options={}):
     # Set default values if none of them are set
@@ -38,15 +39,14 @@ def materializecss(element, options={}):
     return render(element, markup_classes)
 
 
-
 def add_input_classes(field):
     if not is_checkbox(field) and not is_multiple_checkbox(field) and not is_radio(field) \
-        and not is_file(field):
+            and not is_file(field):
         field_classes = field.field.widget.attrs.get('class', '')
         if config.MATERIALIZECSS_VALIDATION:
             field_classes += ' validate'
         if field.errors:
-            field_classes+= ' invalid'
+            field_classes += ' invalid'
         field.field.widget.attrs['class'] = field_classes
 
 
@@ -83,6 +83,7 @@ def render(element, markup_classes):
 def is_checkbox(field):
     return isinstance(field.field.widget, forms.CheckboxInput)
 
+
 @register.filter
 def is_textarea(field):
     return isinstance(field.field.widget, forms.Textarea)
@@ -97,9 +98,11 @@ def is_multiple_checkbox(field):
 def is_radio(field):
     return isinstance(field.field.widget, forms.RadioSelect)
 
+
 @register.filter
 def is_date_input(field):
     return isinstance(field.field, DateField)
+
 
 @register.filter
 def is_datetime_input(field):
