@@ -39,25 +39,22 @@ def materializecss(element, options={}):
     return render(element, markup_classes)
 
 
-def _add_input_classes_widget(widget, errors):
-    if not _is_checkbox_widget(widget) and not _is_multiple_checkbox_widget(widget) \
+def _add_input_classes_widget(widget, field_errors):
+    if _is_multi_widget(widget):
+        for subwidget in widget.widgets:
+            _add_input_classes_widget(subwidget, field_errors)
+    elif not _is_checkbox_widget(widget) and not _is_multiple_checkbox_widget(widget) \
             and not _is_radio_widget(widget) and not _is_file_widget(widget):
         classes = widget.attrs.get('class', '')
         if config.MATERIALIZECSS_VALIDATION:
             classes += ' validate'
-        if errors:
+        if field_errors:
             classes += ' invalid'
         widget.attrs['class'] = classes
 
 
 def add_input_classes(field):
-    if not is_checkbox(field) and not is_multiple_checkbox(field) and not is_radio(field) \
-            and not is_file(field):
-        if has_multi_widget(field):
-            for widget in field.field.widget.widgets:
-                _add_input_classes_widget(widget, field.errors)
-        else:
-            _add_input_classes_widget(field.field.widget, field.errors)
+    _add_input_classes_widget(field.field.widget, field.errors)
 
 
 def render(element, markup_classes):
@@ -105,6 +102,10 @@ def _is_file_widget(widget):
     return isinstance(widget, forms.FileInput)
 
 
+def _is_multi_widget(widget):
+    return isinstance(widget, forms.MultiWidget)
+
+
 @register.filter
 def is_checkbox(field):
     return isinstance(field.field.widget, forms.CheckboxInput)
@@ -148,8 +149,3 @@ def is_select(field):
 @register.filter
 def is_select_multiple(field):
     return isinstance(field.field.widget, forms.SelectMultiple)
-
-
-@register.filter
-def has_multi_widget(field):
-    return isinstance(field.field.widget, forms.MultiWidget)
