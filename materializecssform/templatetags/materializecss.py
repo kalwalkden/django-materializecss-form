@@ -39,15 +39,25 @@ def materializecss(element, options={}):
     return render(element, markup_classes)
 
 
+def _add_input_classes_widget(widget, errors):
+    if not _is_checkbox_widget(widget) and not _is_multiple_checkbox_widget(widget) \
+            and not _is_radio_widget(widget) and not _is_file_widget(widget):
+        classes = widget.attrs.get('class', '')
+        if config.MATERIALIZECSS_VALIDATION:
+            classes += ' validate'
+        if errors:
+            classes += ' invalid'
+        widget.attrs['class'] = classes
+
+
 def add_input_classes(field):
     if not is_checkbox(field) and not is_multiple_checkbox(field) and not is_radio(field) \
             and not is_file(field):
-        field_classes = field.field.widget.attrs.get('class', '')
-        if config.MATERIALIZECSS_VALIDATION:
-            field_classes += ' validate'
-        if field.errors:
-            field_classes += ' invalid'
-        field.field.widget.attrs['class'] = field_classes
+        if has_multi_widget(field):
+            for widget in field.field.widget.widgets:
+                _add_input_classes_widget(widget, field.errors)
+        else:
+            _add_input_classes_widget(field.field.widget, field.errors)
 
 
 def render(element, markup_classes):
@@ -77,6 +87,22 @@ def render(element, markup_classes):
             context = {'form': element, 'classes': markup_classes, 'icon_set': icon_set}
 
     return template.render(context)
+
+
+def _is_checkbox_widget(widget):
+    return isinstance(widget, forms.CheckboxInput)
+
+
+def _is_multiple_checkbox_widget(widget):
+    return isinstance(widget, forms.CheckboxSelectMultiple)
+
+
+def _is_radio_widget(widget):
+    return isinstance(widget, forms.RadioSelect)
+
+
+def _is_file_widget(widget):
+    return isinstance(widget, forms.FileInput)
 
 
 @register.filter
@@ -125,5 +151,5 @@ def is_select_multiple(field):
 
 
 @register.filter
-def is_multi_widget(field):
+def has_multi_widget(field):
     return isinstance(field.field.widget, forms.MultiWidget)
