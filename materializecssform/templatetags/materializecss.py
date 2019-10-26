@@ -122,3 +122,8 @@ def is_select(field):
 @register.filter
 def is_select_multiple(field):
     return isinstance(field.field.widget, forms.SelectMultiple)
+
+
+@register.filter
+def is_multi_widget(field):
+    return isinstance(field.field.widget, forms.MultiWidget)
