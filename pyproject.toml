@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools>=40.6.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Not necessary for packaging but every self-respecting Python
+# package should a) use black and b) fix the WRONG default.
+[tool.black]
+line-length = 79
