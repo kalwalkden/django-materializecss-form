@@ -94,7 +94,7 @@
                 {% if classes.icon %}
                     {% include 'materializecssform/field_icon.html' %}
                 {% endif %}
-                <select multiple name="{{ field.html_name }}">
+                <select multiple name="{{ field.html_name }}" {% include 'materializecssform/attrs.html' %} >
                     {% for choice in field %}
                           {{ choice.tag }}
                     {% endfor %}
@@ -117,7 +117,7 @@
                 {% if classes.icon %}
                     {% include 'materializecssform/field_icon.html' %}
                 {% endif %}
-                <select name="{{ field.html_name }}">
+                <select name="{{ field.html_name }}" {% include 'materializecssform/attrs.html' %} >
                     {% for choice in field %}
                           {{ choice.tag }}
                     {% endfor %}
