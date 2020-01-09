@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 ###################################################################
 
 NAME = "django-materializecss-form"
-PACKAGES = find_packages(where="materializecssform")
+PACKAGES = find_packages(where="")
 META_PATH = os.path.join("materializecssform", "meta.py")
 KEYWORDS = ["materialize", "django", "css", "materializecss", "django forms"]
 CLASSIFIERS = [
@@ -76,7 +76,6 @@ if __name__ == "__main__":
         long_description=read("README.md"),
         long_description_content_type="text/markdown",
         packages=PACKAGES,
-        package_dir={"": "materializecssform"},
         zip_safe=False,
         classifiers=CLASSIFIERS,
         install_requires=INSTALL_REQUIRES,

@@ -1,11 +1,6 @@
-# from distutils.version import StrictVersion
 
+__version__ = '1.1.16'
 
-# VERSION = StrictVersion('1.1.15')
-
-
-
-__version__ = '1.1.15'
 
 __version_info__ = VersionInfo._from_version_string(__version__)
 
@@ -13,7 +8,6 @@ __title__ = "django-materializecss-form"
 __description__ = "A simple Django form template tag to work with Materializecss"
 __url__ = "https://github.com/kalwalkden/django-materializecss-form"
 __uri__ = "https://github.com/kalwalkden/django-materializecss-form"
-# __uri__ = __url__
 __doc__ = __description__ + " <" + __uri__ + ">"
 
 __author__ = "Kal Walkden"
