@@ -2,12 +2,12 @@ import codecs
 import os
 import re
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 ###################################################################
 
 NAME = "django-materializecss-form"
-PACKAGES = find_packages(where="")
+PACKAGES = find_packages()
 META_PATH = os.path.join("materializecssform", "meta.py")
 KEYWORDS = ["materialize", "django", "css", "materializecss", "django forms"]
 CLASSIFIERS = [
@@ -53,8 +53,7 @@ def find_meta(meta):
     Extract __*meta*__ from META_FILE.
     """
     meta_match = re.search(
-        r"^__{meta}__ = ['\"]([^'\"]*)['\"]".format(meta=meta),
-        META_FILE, re.M
+        r"^__{meta}__ = ['\"]([^'\"]*)['\"]".format(meta=meta), META_FILE, re.M
     )
     if meta_match:
         return meta_match.group(1)
@@ -80,5 +79,5 @@ if __name__ == "__main__":
         classifiers=CLASSIFIERS,
         install_requires=INSTALL_REQUIRES,
         options={"bdist_wheel": {"universal": "1"}},
+        include_package_data=True,
     )
-
