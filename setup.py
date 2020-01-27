@@ -2,12 +2,12 @@ import codecs
 import os
 import re
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 ###################################################################
 
 NAME = "django-materializecss-form"
-PACKAGES = find_packages(where="")
+PACKAGES = ["materializecssform"]
 META_PATH = os.path.join("materializecssform", "meta.py")
 KEYWORDS = ["materialize", "django", "css", "materializecss", "django forms"]
 CLASSIFIERS = [
