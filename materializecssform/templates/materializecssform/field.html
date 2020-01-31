@@ -54,7 +54,7 @@
             {% include 'materializecssform/field_icon.html' %}
         {% endif %}
 
-        <input type="date" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{% localize off %}{{ field.value }}{% endlocalize %}{% endif %}" {% include 'materializecssform/attrs.html' %} >
+        <input type="text" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{% localize off %}{{ field.value }}{% endlocalize %}{% endif %}" {% include 'materializecssform/attrs.html' %} >
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
         {% for error in field.errors %}
