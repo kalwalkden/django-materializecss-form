@@ -1,5 +1,4 @@
-
-__version__ = '1.1.16'
+__version__ = "1.1.16"
 
 
 __version_info__ = VersionInfo._from_version_string(__version__)
@@ -10,8 +9,8 @@ __url__ = "https://github.com/kalwalkden/django-materializecss-form"
 __uri__ = "https://github.com/kalwalkden/django-materializecss-form"
 __doc__ = __description__ + " <" + __uri__ + ">"
 
-__author__ = "Kal Walkden"
-__email__ = "kal@walkden.us"
+__author__ = "Kal Walkden, Samuel von Stachelski"
+__email__ = "kal@walkden.us, sam@basx.dev"
 
 __license__ = "MIT"
 __copyright__ = "Copyright (c) 2020 Kal Walkden"
