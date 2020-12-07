@@ -1,4 +1,4 @@
-__version__ = "1.1.17"
+__version__ = "1.1.18"
 
 
 __version_info__ = VersionInfo._from_version_string(__version__)
