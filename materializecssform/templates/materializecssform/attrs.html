@@ -3,3 +3,4 @@
         {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}" {% endif %}
     {% endif %}
 {% endfor %}
+{% if field.field.disabled %} disabled{% endif %}
