@@ -55,7 +55,7 @@
         {% endif %}
 
         <input type="text" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{% localize off %}{{ field.value }}{% endlocalize %}{% endif %}" {% include 'materializecssform/attrs.html' %} >
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <label for="{{ field.id_for_label }}"{% if field.value %} class="active"{% endif %}>{{ field.label }}</label>
 
         {% for error in field.errors %}
             <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
@@ -75,7 +75,7 @@
         {% endif %}
 
         <input type="datetime-local" id="{{ field.auto_id }}" name="{{ field.html_name }}" value="{% if field.value %}{{ field.value|date:'c' }}{% endif %}" {% include 'materializecssform/attrs.html' %}  >
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <label for="{{ field.id_for_label }}"{% if field.value %} class="active"{% endif %}>{{ field.label }}</label>
 
         {% for error in field.errors %}
             <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
@@ -180,7 +180,7 @@
             {% endif %}
             <textarea id="{{ field.auto_id }}" class="materialize-textarea" name="{{field.html_name}}" {% include 'materializecssform/attrs.html' %} >{% if field.value %}{{ field.value }}{% endif %}</textarea>
             {% if field.auto_id %}
-                <label class="{% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
+                <label class="{% if field.field.required %}{{ form.required_css_class }}{% endif %}{% if field.value %} active{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
             {% endif %}
 
             {% for error in field.errors %}
@@ -223,7 +223,7 @@
             {% endif %}
             {{ field }}
             {% if field.auto_id %}
-                <label class="{% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
+                <label class="{% if field.field.required %}{{ form.required_css_class }}{% endif %}{% if field.value %} active{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
             {% endif %}
 
             {% for error in field.errors %}
