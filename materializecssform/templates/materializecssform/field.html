@@ -26,6 +26,41 @@
             {% endif %}
         </div>
     </div>
+
+    
+    {% elif field|is_multiple_checkbox %}
+    <div class="col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
+        {% if field.auto_id %}
+            <label>{{ field.label }}</label>
+        {% endif %}
+        <div id="{{field.auto_id}}">
+            <ul>
+
+                {% for choice in field %}
+
+                    <li class="{% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
+                        <label>
+                            {{ choice.tag }}
+                            <span>{{ choice.choice_label }}</span>
+                        </label>
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+            {% for error in field.errors %}
+                <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+            {% endfor %}
+
+            {% if field.help_text %}
+            <p class="help-block">
+                {{ field.help_text|safe }}
+            </p>
+            {% endif %}
+        </div>
+
+    </div>
+    
     {% elif field|is_radio %}
     <div class="col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
         <div class="{% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
@@ -137,39 +172,6 @@
                 {% endif %}
 
             {% endif %}
-
-    </div>
-
-    {% elif field|is_multiple_checkbox %}
-    <div class="col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
-        {% if field.auto_id %}
-            <label>{{ field.label }}</label>
-        {% endif %}
-        <div id="{{field.auto_id}}">
-            <ul>
-
-                {% for choice in field %}
-
-                    <li class="{% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
-                        <label>
-                            {{ choice.tag }}
-                            <span>{{ choice.choice_label }}</span>
-                        </label>
-                    </li>
-
-                {% endfor %}
-
-            </ul>
-            {% for error in field.errors %}
-                <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
-            {% endfor %}
-
-            {% if field.help_text %}
-            <p class="help-block">
-                {{ field.help_text|safe }}
-            </p>
-            {% endif %}
-        </div>
 
     </div>
 
